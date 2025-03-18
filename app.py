@@ -17,10 +17,10 @@ if "user" not in st.session_state:
     st.session_state.user = None
 
 # ---------- Authentication Flow ----------
-redirect_url = "http://localhost:8501"  # Change to your Streamlit Cloud URL after deployment
+redirect_url = "https://tune-in-uhkf4oh9qerz9b8dv3kjwj.streamlit.app"  # Change to your Streamlit Cloud URL after deployment
 login_url = f"{SUPABASE_URL}/auth/v1/authorize?provider=google&redirect_to={redirect_url}"
 
-query_params = st.query_params()
+query_params = st.query_params
 print(query_params)
 
 if 'access_token' in query_params and not st.session_state.user:
