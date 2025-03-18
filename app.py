@@ -13,6 +13,16 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY, options=ClientOptio
 st.set_page_config(page_title="🎵 Tune In", layout="centered")
 st.title("🎶 YouTube Audio Downloader with Cloud Playlist")
 
+components.html("""
+    <script>
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        const token = params.get("access_token");
+        if (token) {
+            window.location.href = window.location.pathname + "?access_token=" + token;
+        }
+    </script>
+""", height=0)
+
 if "user" not in st.session_state:
     st.session_state.user = None
 
